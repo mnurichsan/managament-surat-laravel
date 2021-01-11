@@ -67,5 +67,40 @@ Route::group(['middleware' => 'auth'], function () {
 
         //cetak surat
         Route::get('cetak-disposisi/{id}', 'CetakSuratController@cetakDisposisi')->name('cetak.surat');
+
+        //renstra
+        Route::get('renstra', 'RenstraController@index')->name('renstra.index');
+        Route::post('renstra', 'RenstraController@store')->name('renstra.store');
+        Route::get('renstra/{id}/edit', 'RenstraController@edit')->name('renstra.edit');
+        Route::put('renstra/{id}/update', 'RenstraController@update')->name('renstra.update');
+        Route::delete('renstra/{id}/delete', 'RenstraController@delete')->name('renstra.destroy');
+
+        //data penerbangan
+        //pesawat
+        Route::get('/data-penerbangan', 'DetailTransportasiController@penerbanganIndex')->name('penerbangan.index');
+        Route::post('/data-penerbangan/pesawat', 'DetailTransportasiController@penerbanganStore')->name('pesawat.store');
+        Route::get('/data-penerbangan/pesawat/{id}/edit', 'DetailTransportasiController@editPenerbangan')->name('pesawat.edit');
+        Route::put('/data-penerbangan/pesawat/{id}/update', 'DetailTransportasiController@updatePenerbangan')->name('pesawat.update');
+        Route::delete('/data-penerbangan/pesawat/{id}/delete', 'DetailTransportasiController@deletePenerbangan')->name('pesawat.delete');
+
+        //penumpang
+        Route::post('/data-penerbangan/penumpang-pesawat', 'DetailTransportasiController@penerbanganPenumpangStore')->name('penumpangpesawat.store');
+        Route::get('/data-penerbangan/penumpang-pesawat/{id}/edit', 'DetailTransportasiController@editPenerbanganPenumpangEdit')->name('penumpangpesawat.edit');
+        Route::put('/data-penerbangan/penumpang-pesawat/{id}/update', 'DetailTransportasiController@updatePenerbanganPenumpang')->name('penumpangpesawat.update');
+        Route::delete('/data-penerbangan/penumpang-pesawat/{id}/delete', 'DetailTransportasiController@deletePenerbanganPenumpang')->name('penumpangpesawat.delete');
+
+
+        //data pelabuhan
+        Route::get('/data-pelabuhan', 'DetailTransportasiController@pelabuhanIndex')->name('pelabuhan.index');
+        Route::post('/data-pelabuhan/kapal', 'DetailTransportasiController@pelabuhanStore')->name('pelabuhan.store');
+        Route::get('/data-pelabuhan/kapal/{id}/edit', 'DetailTransportasiController@editPelabuhan')->name('pelabuhan.edit');
+        Route::put('/data-pelabuhan/kapal/{id}/update', 'DetailTransportasiController@updatePelabuhan')->name('pelabuhan.update');
+        Route::delete('/data-pelabuhan/kapal/{id}/delete', 'DetailTransportasiController@deletePelabuhan')->name('pelabuhan.delete');
+
+        //penumpang
+        Route::post('/data-pelabuhan/penumpang-kapal', 'DetailTransportasiController@pelabuhanPenumpangStore')->name('penumpangkapal.store');
+        Route::get('/data-pelabuhan/penumpang-kapal/{id}/edit', 'DetailTransportasiController@editPelabuhanPenumpangEdit')->name('penumpangkapal.edit');
+        Route::put('/data-pelabuhan/penumpang-kapal/{id}/update', 'DetailTransportasiController@updatePelabuhanPenumpang')->name('penumpangkapal.update');
+        Route::delete('/data-pelabuhan/penumpang-kapal/{id}/delete', 'DetailTransportasiController@deletePelabuhanPenumpang')->name('penumpangkapal.delete');
     });
 });

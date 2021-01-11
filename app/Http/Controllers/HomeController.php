@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\detail_transportasi;
 use App\Disposisi;
 use App\Referensi;
+use App\renstra;
 use App\SuratKeluar;
 use App\SuratMasuk;
 use App\User;
@@ -33,6 +35,9 @@ class HomeController extends Controller
         $referensiCount = Referensi::all()->count();
         $userCount = User::all()->count();
         $disposisiCount = Disposisi::all()->count();
-        return view('home', compact('suratMasukCount', 'suratKeluarCount', 'referensiCount', 'userCount', 'disposisiCount'));
+        $renstraCount = renstra::all()->count();
+        $penerbanganCount = detail_transportasi::where('id_transportasi', 1)->count();
+        $pelabuhanCount = detail_transportasi::where('id_transportasi', 2)->count();
+        return view('home', compact('suratMasukCount', 'suratKeluarCount', 'referensiCount', 'userCount', 'disposisiCount', 'renstraCount', 'penerbanganCount', 'pelabuhanCount'));
     }
 }

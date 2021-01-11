@@ -5,7 +5,7 @@
          <div class="sidebar-brand-icon">
              <img src="{{asset('asset_backend/img/logo.png')}}" class="img-fluid" alt="logo dishub" width="35" />
          </div>
-         <div class="sidebar-brand-text mx-3">AMS Dishub</div>
+         <div class="sidebar-brand-text mx-3">AMSDRENSTRA Dishub</div>
      </a>
 
      <!-- Divider -->
@@ -25,6 +25,31 @@
      <div class="sidebar-heading">
          Menu
      </div>
+
+     <li class="nav-item {{ Route::is('penerbangan.index') || Route::is('pesawat.edit') || Route::is('penumpangpesawat.edit') || Route::is('pelabuhan.index')  ? 'active' : ''  }}">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDt" aria-expanded="true" aria-controls="collapseTs">
+             <i class="fas fa-atlas"></i>
+             <span>Data Transportasi</span>
+         </a>
+         <div id="collapseDt" class="collapse {{ Route::is('penerbangan.index') || Route::is('pesawat.edit') || Route::is('penumpangpesawat.edit') || Route::is('pelabuhan.index')  ? 'show' : ''  }}" aria-labelledby="headingTs" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <a class="collapse-item {{ Route::is('penerbangan.index') || Route::is('pesawat.edit') || Route::is('penumpangpesawat.edit')  ? 'active' : ''  }}" href="{{route('penerbangan.index')}}">Data Penerbangan</a>
+                 <a class="collapse-item {{ Route::is('pelabuhan.index') || Route::is('pesawat.edit') || Route::is('penumpangpesawat.edit')  ? 'active' : ''  }}" href="{{route('pelabuhan.index')}}">Data pelabuhan</a>
+             </div>
+         </div>
+     </li>
+     <!-- Nav Item - Pages Collapse Transaksi Surat -->
+     <li class="nav-item {{ Route::is('renstra.index') || Route::is('renstra.edit')  ? 'active' : ''  }}">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRs" aria-expanded="true" aria-controls="collapseTs">
+             <i class="fas fa-book-open"></i>
+             <span>Renstra</span>
+         </a>
+         <div id="collapseRs" class="collapse {{ Route::is('renstra.index') || Route::is('renstra.edit')  ? 'show' : ''  }}" aria-labelledby="headingTs" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <a class="collapse-item {{ Route::is('renstra.index') || Route::is('renstra.edit')  ? 'active' : ''  }}" href="{{route('renstra.index')}}">Data Renstra</a>
+             </div>
+         </div>
+     </li>
 
      <!-- Nav Item - Pages Collapse Transaksi Surat -->
      <li class="nav-item {{ Route::is('surat-masuk.index') || Route::is('surat-keluar.index') || Route::is('disposisi.index') || Route::is('disposisi.edit') ? 'active' : ''  }}">
